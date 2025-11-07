@@ -2,16 +2,18 @@ import { useState } from 'react';
 
 export default function FeedbackForm() {
   const [isSent, setIsSent] = useState(false);
+  const [message, setMessage] = useState('');
   if (isSent) {
-    return <h1>¡Gracias!</h1>;
+    return <h2>¡Gracias!</h2>
   } else {
     // eslint-disable-next-line
-    const [message, setMessage] = useState('');
+    
     return (
       <form onSubmit={e => {
-        e.preventDefault();
+         e.preventDefault();
         alert(`Enviando: "${message}"`);
         setIsSent(true);
+       
       }}>
         <textarea
           placeholder="Mensaje"
@@ -19,8 +21,9 @@ export default function FeedbackForm() {
           onChange={e => setMessage(e.target.value)}
         />
         <br />
-        <button type="submit">Enviar</button>
+        <button type="Submit" >Enviar</button>
       </form>
+     
     );
   }
 }
